@@ -12,19 +12,17 @@ import com.example.myschools.R
 import com.example.myschools.data.School
 import com.example.myschools.data.SchoolItem
 
-class SchoolListAdapter(private val schools: List<SchoolItem>, private val context: Context) : RecyclerView.Adapter<SchoolListAdapter.SchoolViewHolder>() {
-
+class SchoolListAdapter(private val schools: List<SchoolItem>, private val context: Context):
+          RecyclerView.Adapter<SchoolListAdapter.SchoolViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SchoolViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_school_name, parent, false)
         return SchoolViewHolder(view)
     }
-
     override fun onBindViewHolder(holder: SchoolViewHolder, position: Int) {
         val school = schools[position]
         holder.bind(school)
         actionListener(school,holder)
     }
-
     override fun getItemCount(): Int {
         return schools.size
     }
